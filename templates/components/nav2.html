@@ -1,0 +1,56 @@
+<header class="autoshow">
+    <div class="info">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="col"><span class="id-color"><i class="fa fa-map-marker"></i></span>100
+                        Mainstreet Center, Sydney</div>
+                    <div class="col"><span class="id-color"><i class="fa fa-clock-o"></i></span>Saturday 3
+                        August 2023 14:00 PM - 16:00
+                        PM</div>
+                </div>
+                <div class="col-md-4 text-right">
+                    <a href="rsvp.html" class="btn btn-custom btn-small">I'm Attending</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- logo begin -->
+                <div id="logo">
+                    <a href="{{url_for('index')}}">
+                        <img class="logo" src="static\images\logo-doctress.png" alt="">
+                        <img class="logo-2" src="static\images\logo-doctress.png" alt="">
+                    </a>
+                    <span id="menu-btn"></span>
+                </div>
+                <!-- logo close -->
+
+                <!-- small button begin -->
+                <!-- small button close -->
+
+                <!-- mainmenu begin -->
+                <nav>
+                    <ul id="mainmenu">
+                        <li><a class="active" href="{{url_for('index')}}">Home</a>
+
+                        </li>
+                        <li><a href="{{url_for('index')}}#section-intro-text">About Us</a></li>
+                        <li><a href="{{url_for('index')}}#section-quick-contact">Contact Us</a></li>
+                       
+                    <a href="{{ url_for('index') }}" style="background-color: #fe4614 ; text-align: center; padding: 18px; color: white">
+                        <i class="fas fa-sign-out-alt"></i> Go Back
+                    </a>
+                    
+                    </ul>
+                </nav>
+
+            </div>
+            <!-- mainmenu close -->
+
+        </div>
+    </div>
+</header>

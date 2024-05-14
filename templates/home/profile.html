@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Doctress</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Eventbiz is event and conference website template">
+    <meta name="keywords"
+        content="camp, conference, conference theme, event, event schedule, event website, event wordpress theme, exhibition, expo">
+    <meta name="author" content="">
+
+    <!--[if lt IE 9]>
+	<script src="js/html5shiv.js"></script>
+	<![endif]-->
+
+    <!-- CSS Files
+    ================================================== -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/animate.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/owl.carousel.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/magnific-popup.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/jquery.countdown.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style_profile.css') }}" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <!-- background -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bg.css') }}" type="text/css">
+    <link rel="icon" href="static\images\logo-doctressold.png">
+    <!-- color -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/color.css') }}" type="text/css">
+    
+</head>
+
+<body class="page-about">
+
+    <div id="wrapper">
+        <!-- header begin -->
+        <header>
+
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- logo begin -->
+                        <div id="logo">
+                            <a href="index.html">
+                                <img class="logo" src="images/logo-light.png" alt="">
+                                <img class="logo-2" src="images/logo-dark.png" alt="">
+                            </a>
+                        </div>
+                        <!-- logo close -->
+
+                        <!-- small button begin -->
+                        <span id="menu-btn"></span>
+                        <!-- small button close -->
+
+                        <!-- mainmenu begin -->
+                        <nav>
+                            <ul id="mainmenu">
+                                <li><a href="{{url_for('index')}}">Go Back</a></li>
+                            </ul>
+                        </nav>
+
+                    </div>
+                    <!-- mainmenu close -->
+
+                </div>
+            </div>
+        </header>
+        <!-- header close -->
+        
+        <!-- subheader -->
+        <section id="subheader" data-stellar-background-ratio=".2" class="text-light">
+            <div class="container">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">
+                        <ul>
+                        <li>{{ message }}</li>
+                        </ul>
+                    </div>
+                    <script>
+                        setTimeout(function() {
+                          var alertDiv = document.querySelector('.alert-{{ category }}');
+                          if (alertDiv) {
+                            alertDiv.remove();
+                          }
+                        }, 5000); // 5000 milliseconds = 5 seconds
+                      </script>
+                    {% endfor %}
+                {% endif %}
+                {% endwith %}
+                <div class="row">
+                    <div class="col-md-12 text-center fadeScroll relative" data-scroll-speed="2">
+                        <h1>Hello, {{session["user"]["fname"]}}</h1>
+                        <p class="lead">We are always here to help you </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- subheader close -->
+
+        <!-- content begin -->
+        <div id="content">
+            <div class="container relative">
+                <div class="row">
+
+
+
+                    <!-- Profile card for each user -->
+                    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+
+
+                    <div class="main-content">
+                        <div class="container-fluid mt--7">
+                            <div class="row">
+                                <div class="col-xl-4 order-xl-2 mb-5 mb-xl-0">
+                                    <div class="card card-profile shadow">
+                                        <div class="row justify-content-center">
+                                            <div class="col-lg-3 order-lg-2">
+                                                <div class="card-profile-image">
+                                                    <a href="#">
+                                                        <img src="{{session['user']['profile_image']}}"
+                                                            class="rounded-circle">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-header text-center border-0 pt-8 pt-md-4 pb-8 pb-md-12">
+                                            <div class="d-flex justify-content-between">
+
+                                            </div>
+                                        </div>
+                                        <div class="card-body pt-8 pt-md-12">
+                                            <div class="row">
+                                                <div class="col">
+
+                                                </div>
+                                            </div>
+                                            <div class="text-center">
+                                                <h1>
+                                                    {{session['user']['fname']}} {{session['user']['lname']}}
+                                                </h1>
+                                                
+                                                <hr class="my-4">
+                                                <P>Doctress: Lady Doctors Nexus<br> Always here to help you out.</P>
+                                                <p style="visibility: hidden">Ryan — the name taken by Melbourne-raised,
+                                                    Brooklyn-based Nick Murphy — writes, performs and
+                                                    records all of his own music.</p>
+                                                <a href="tel:9885848867" class="btn btn-sm btn-primary" style="color: black;">Contact
+                                                    Now</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-8 order-xl-1">
+                                    <div class="card bg-secondary shadow">
+                                        <div class="card-header bg-white border-0">
+                                            <div class="row align-items-center">
+                                                <div class="col-8">
+                                                    <h3 class="mb-0">My account</h3>
+                                                </div>
+                                                <div class="col-4 text-right">
+                                                    <a href="{{url_for('update_user_profile')}}" class="btn btn-sm btn-primary">Edit</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-body">
+                                            <form>
+                                                <h6 class="heading-small text-muted mb-4">User
+                                                    information</h6>
+                                                <div class="pl-lg-4">
+                                                    <div class="row">
+                                                        <div class="col-lg-6">
+                                                            <div class="form-group focused">
+                                                                <label class="form-control-label"
+                                                                    for="input-username">Username</label>
+                                                                <input type="text" id="input-username"
+                                                                    class="form-control form-control-alternative"
+                                                                    name="username"
+                                                                    placeholder="{{session['user']['username']}}" value="{{session['user']['username']}}">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <div class="form-group">
+                                                                <label class="form-control-label"
+                                                                    for="input-email">Email
+                                                                    address</label>
+                                                                <input type="email" id="input-email"
+                                                                    class="form-control form-control-alternative"
+                                                                    name="email"  placeholder="{{session['user']['email']}}"  value="{{session['user']['email']}}">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-6">
+                                                            <div class="form-group focused">
+                                                                <label class="form-control-label"
+                                                                    for="input-first-name">First
+                                                                    name</label>
+                                                                <input type="text" id="input-first-name"
+                                                                    class="form-control form-control-alternative"
+                                                                    name='fname' placeholder="{{session['user']['fname']}}" value="{{session['user']['fname']}}">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <div class="form-group focused">
+                                                                <label class="form-control-label"
+                                                                    for="input-last-name">Last
+                                                                    name</label>
+                                                                <input type="text" id="input-last-name"
+                                                                    class="form-control form-control-alternative"
+                                                                    name='lname' placeholder="{{session['user']['lname']}}" value="{{session['user']['lname']}}">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <hr class="my-4">
+                                                <!-- Address -->
+                                                <h6 class="heading-small text-muted mb-4">Contact
+                                                    information</h6>
+                                                <div class="pl-lg-4">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="form-group focused">
+                                                                <label class="form-control-label"
+                                                                    for="input-address">Address</label>
+                                                                <input id="input-address"
+                                                                    class="form-control form-control-alternative"
+                                                                    name='address' placeholder="{{session['user']['address']}}" value="{{session['user']['address']}}"
+                                                                    type="text">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <hr class="my-4">
+                                                <!-- Description -->
+                                                <h6 class="heading-small text-muted mb-4">About me</h6>
+                                                <div class="pl-lg-4">
+                                                    <div class="form-group focused">
+                                                        <label>About Me</label>
+                                                        <textarea rows="4" class="form-control form-control-alternative"
+                                                        name='about' placeholder="{{session['user']['about']}}"> {{session['user']['about']}}</textarea>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Additional profile cards for other users can be added here -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- footer begin -->
+    {% include "components/footer.html" %}
+    <!-- footer close -->
+
+    <a href="#" id="back-to-top"></a>
+    <div id="preloader">
+        <div class="preloader1"></div>
+    </div>
+    </div>
+
+    <!-- Javascript Files
+    ================================================== -->
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.isotope.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/easing.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/owl.carousel.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.countTo.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/wow.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.magnific-popup.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/enquire.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.stellar.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.plugin.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.countdown.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/countdown-custom.js') }}"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAc5d1RS_0yWJ1Hyw2hGWfbRZ9KKaxFAZo"></script>
+    <script src="{{ url_for('static', filename='js/map.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/designesia.js') }}"></script>
+
+</body>
+
+</html>

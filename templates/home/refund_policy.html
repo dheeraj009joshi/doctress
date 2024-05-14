@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Doctress - Register</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Doctress: Lady Doctors Nexus">
+    <meta name="keywords"
+        content="camp, conference, conference theme, event, event schedule, event website, event wordpress theme, exhibition, expo">
+    <meta name="author" content="">
+
+    <!--[if lt IE 9]>
+	<script src="js/html5shiv.js"></script>
+	<![endif]-->
+
+    <!-- CSS Files
+    ================================================== -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}" type="text/css">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/animate.css') }}" type="text/css">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/owl.carousel.css') }}" type="text/css">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/magnific-popup.css') }}" type="text/css">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/jquery.countdown.css') }}" type="text/css">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
+
+<!-- background -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/bg.css') }}" type="text/css">
+
+
+<!-- color -->
+
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/css/color.css') }}" type="text/css">
+    <style>
+        /*custom font*/
+        @import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+        /*basic reset*/
+        #content {
+            position: relative;
+            z-index: 1;
+        }
+
+
+
+
+
+        *form styles*/ #msform {
+            width: 400px;
+            margin: 50px auto;
+            text-align: center;
+            position: relative;
+        }
+
+        #msform fieldset {
+            background: white;
+            border: 0 none;
+            border-radius: 3px;
+            box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+            padding: 20px 30px;
+            box-sizing: border-box;
+            width: 80%;
+            margin: 0 10%;
+
+            /*stacking fieldsets above each other*/
+            position: relative;
+        }
+
+        /*Hide all except first fieldset*/
+        #msform fieldset:not(:first-of-type) {
+            display: none;
+        }
+
+        /*inputs*/
+        #msform input,
+        #msform textarea {
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            margin-bottom: 10px;
+            width: 100%;
+            box-sizing: border-box;
+            font-family: montserrat;
+            color: #2C3E50;
+            font-size: 13px;
+        }
+
+        /*buttons*/
+        #msform .action-button {
+            width: 100px;
+            background: #27AE60;
+            font-weight: bold;
+            color: white;
+            border: 0 none;
+            border-radius: 1px;
+            cursor: pointer;
+            padding: 10px;
+            margin: 10px 5px;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        #msform .action-button:hover,
+        #msform .action-button:focus {
+            box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
+        }
+
+        /*headings*/
+        .fs-title {
+            font-size: 15px;
+            text-transform: uppercase;
+            color: #2C3E50;
+            margin-bottom: 10px;
+        }
+
+        .fs-subtitle {
+            font-weight: normal;
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        /*progressbar*/
+        #progressbar {
+            margin-bottom: 30px;
+            overflow: hidden;
+
+            /*CSS counters to number the steps*/
+            counter-reset: step;
+        }
+
+        #progressbar li {
+            list-style-type: none;
+            color: rgb(32, 30, 30);
+            text-transform: uppercase;
+            font-size: 9px;
+            width: 33.33%;
+            float: left;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        #progressbar li:before {
+            content: counter(step);
+            counter-increment: step;
+            width: 20px;
+            line-height: 20px;
+            display: block;
+            font-size: 10px;
+            color: #333;
+            background: rgba(171, 198, 176, 0.664);
+            border-radius: 3px;
+            margin: 0 auto 5px auto;
+
+        }
+
+        /*progressbar connectors*/
+        #progressbar li:after {
+            content: '';
+            width: 100%;
+            height: 2px;
+            background: rgb(223, 112, 112);
+            position: absolute;
+            left: -50%;
+            top: 9px;
+            z-index: -1;
+
+            /*put it behind the numbers*/
+        }
+
+        #progressbar li:first-child:after {
+            /*connector not needed before the first step*/
+            content: none;
+        }
+
+        /*marking active/completed steps green*/
+        /*The number of the step and the connector before it = green*/
+        #progressbar li.active:before,
+        #progressbar li.active:after {
+            background: #27AE60;
+            color: #27AE60;
+        }
+
+        /* Profile Picture Upload CSS */
+        .profile-upload {
+            position: relative;
+            display: inline-block;
+            overflow: hidden;
+        }
+
+        .profile-picture-label {
+            display: block;
+            cursor: pointer;
+        }
+
+        .profile-picture-placeholder {
+            width: 120px;
+            /* Adjust as needed */
+            height: 120px;
+            /* Adjust as needed */
+            border-radius: 50%;
+            /* Makes the placeholder circular */
+            border: 2px dashed #ccc;
+            /* Placeholder border */
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            line-height: 120px;
+            /* Center content vertically */
+        }
+
+        .upload-text {
+            display: block;
+            color: #999;
+            transform: scale(2);
+            /* Text color */
+            font-size: 8px;
+            /* Text size */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            margin-bottom: 20px;
+            /* Center text horizontally and vertically */
+        }
+
+        .uploaded-image {
+            display: none;
+            max-width: 100%;
+            /* Ensure image doesn't overflow placeholder */
+            max-height: 100%;
+            /* Ensure image doesn't overflow placeholder */
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+
+<body class="page-about">
+
+    <div id="wrapper">
+        <!-- header begin -->
+        <header>
+
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- logo begin -->
+                        <div id="logo">
+                            <a href="index.html">
+                                <img class="logo" src="images/logo-light.png" alt="">
+                                <img class="logo-2" src="images/logo-dark.png" alt="">
+                            </a>
+                        </div>
+                        <!-- logo close -->
+
+                        <!-- small button begin -->
+                        <span id="menu-btn"></span>
+                        <!-- small button close -->
+
+                        <!-- mainmenu begin -->
+                        <nav>
+                            <ul id="mainmenu">
+                                <li><a href="{{url_for('index')}}">Go Back</a></li>
+
+                            </ul>
+                        </nav>
+
+                    </div>
+                    <!-- mainmenu close -->
+
+                </div>
+            </div>
+        </header>
+        <!-- header close -->
+
+        <!-- subheader -->
+        
+        <!-- subheader close -->
+
+        <!-- content begin -->
+        <div id="content">
+            <h1>Refund Policy</h1>
+    <p>Thank you for choosing Doctress for your event needs. We strive to provide excellent service and ensure your satisfaction with every booking. Please take note of our refund policy outlined below:</p>
+
+    <ol>
+        <li><strong>No Refunds After Payment:</strong> Once payment has been made for an event booking, refunds will not be issued under any circumstances. This policy applies to all bookings, regardless of the reason for cancellation or change in plans.</li>
+        <li><strong>Cancellation Policy:</strong> While we understand that unforeseen circumstances may arise, including personal emergencies or scheduling conflicts, we regret that we cannot offer refunds for cancelled bookings. It is the responsibility of the customer to carefully consider their booking before making payment.</li>
+        <li><strong>Booking Modifications:</strong> In some cases, we may be able to accommodate modifications to your booking, such as changing the date or transferring the booking to another individual. However, such modifications are subject to availability and may incur additional fees. Please contact our customer support team for assistance with booking modifications.</li>
+        <li><strong>Event Cancellations by Organizer:</strong> In the rare event that an event is cancelled by the organizer, customers will be notified promptly, and alternative arrangements may be offered, such as rescheduling the event or receiving credit towards future bookings. Refunds will only be issued if expressly stated by the organizer.</li>
+        <li><strong>Refund Exceptions:</strong> Our refund policy is firm, and exceptions will not be made for any reason, including but not limited to dissatisfaction with the event, changes in personal circumstances, or failure to attend the event.</li>
+        <li><strong>Contact Us:</strong> If you have any questions or concerns regarding our refund policy, please don't hesitate to contact our customer support team. We are here to assist you and ensure your experience with [Your Event Booking Website] is as smooth and enjoyable as possible.</li>
+    </ol>
+
+    <p>By making a booking through Doctress, you acknowledge that you have read, understood, and agreed to our refund policy.</p>
+
+    <p>Thank you for your understanding and cooperation.</p>
+
+    <p>Doctress Management</p>
+        </div>
+
+        <!-- footer begin -->
+        <footer>
+            <div class="container text-center text-light">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="social-icons big">
+                            <a href="#"><i class="fa fa-facebook fa-lg"></i></a>
+                            <a href="#"><i class="fa fa-twitter fa-lg"></i></a>
+                            <a href="#"><i class="fa fa-rss fa-lg"></i></a>
+                            <a href="#"><i class="fa fa-google-plus fa-lg"></i></a>
+                            <a href="#"><i class="fa fa-skype fa-lg"></i></a>
+                            <a href="#"><i class="fa fa-dribbble fa-lg"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="subfooter">
+                <div class="container text-center">
+                    <div class="row">
+                        <div class="col-md-12">
+                            &copy; Copyright 2023 - Eventbiz by Designesia
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- footer close -->
+
+        <a href="#" id="back-to-top"></a>
+        <div id="preloader">
+            <div class="preloader1"></div>
+        </div>
+    </div>
+
+    <!-- Javascript Files
+    ================================================== -->
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.isotope.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/easing.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/owl.carousel.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.countTo.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/wow.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.magnific-popup.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/enquire.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.stellar.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.plugin.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.countdown.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/countdown-custom.js') }}"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAc5d1RS_0yWJ1Hyw2hGWfbRZ9KKaxFAZo"></script>
+    <script src="{{ url_for('static', filename='js/map.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/designesia.js') }}"></script>
+    <script>
+
+        //jQuery time
+        var current_fs, next_fs, previous_fs; //fieldsets
+        var left, opacity, scale; //fieldset properties which we will animate
+        var animating; //flag to prevent quick multi-click glitches
+
+        $(".next").click(function () {
+            if (animating) return false;
+            animating = true;
+
+            current_fs = $(this).parent();
+            next_fs = $(this).parent().next();
+
+            //activate next step on progressbar using the index of next_fs
+            $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+
+            //show the next fieldset
+            next_fs.show();
+            //hide the current fieldset with style
+            current_fs.animate({ opacity: 0 }, {
+                step: function (now, mx) {
+                    //as the opacity of current_fs reduces to 0 - stored in "now"
+                    //1. scale current_fs down to 80%
+                    scale = 1 - (1 - now) * 0.2;
+                    //2. bring next_fs from the right(50%)
+                    left = (now * 50) + "%";
+                    //3. increase opacity of next_fs to 1 as it moves in
+                    opacity = 1 - now;
+                    current_fs.css({
+                        'transform': 'scale(' + scale + ')',
+                        'position': 'relative'
+                    });
+                    next_fs.css({ 'left': left, 'opacity': opacity });
+                },
+                duration: 800,
+                complete: function () {
+                    current_fs.hide();
+                    animating = false;
+                },
+                //this comes from the custom easing plugin
+                easing: 'easeInOutBack'
+            });
+        });
+
+        $(".previous").click(function () {
+            if (animating) return false;
+            animating = true;
+
+            current_fs = $(this).parent();
+            previous_fs = $(this).parent().prev();
+
+            //de-activate current step on progressbar
+            $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+
+            //show the previous fieldset
+            previous_fs.show();
+            //hide the current fieldset with style
+            current_fs.animate({ opacity: 0 }, {
+                step: function (now, mx) {
+                    //as the opacity of current_fs reduces to 0 - stored in "now"
+                    //1. scale previous_fs from 80% to 100%
+                    scale = 0.8 + (1 - now) * 0.2;
+                    //2. take current_fs to the right(50%) - from 0%
+                    left = ((1 - now) * 50) + "%";
+                    //3. increase opacity of previous_fs to 1 as it moves in
+                    opacity = 1 - now;
+                    current_fs.css({ 'left': left });
+                    previous_fs.css({ 'transform': 'scale(' + scale + ')', 'opacity': opacity });
+                },
+                duration: 800,
+                complete: function () {
+                    current_fs.hide();
+                    animating = false;
+                },
+                //this comes from the custom easing plugin
+                easing: 'easeInOutBack'
+            });
+        });
+
+
+        function previewImage(event) {
+            var reader = new FileReader();
+            reader.onload = function () {
+                var output = document.querySelector('.uploaded-image');
+                var uploadText = document.querySelector('.upload-text');
+                output.style.display = 'block';
+                output.src = reader.result;
+                uploadText.style.display = 'none';
+            }
+
+            reader.readAsDataURL(event.target.files[0]);
+        }
+
+
+    </script>
+
+</body>
+
+</html>

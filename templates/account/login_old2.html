@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Doctress - Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Doctress: Lady Doctors Nexus">
+    <meta name="keywords"
+        content="camp, conference, conference theme, event, event schedule, event website, event wordpress theme, exhibition, expo">
+    <meta name="author" content="">
+
+    <!--[if lt IE 9]>
+	<script src="js/html5shiv.js"></script>
+	<![endif]-->
+
+    <!-- CSS Files
+    ================================================== -->
+  
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}" type="text/css">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/animate.css') }}" type="text/css">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/owl.carousel.css') }}" type="text/css">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/magnific-popup.css') }}" type="text/css">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/jquery.countdown.css') }}" type="text/css">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
+<link rel="icon" href="static\images\logo-doctress.png">
+<!-- background -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/bg.css') }}" type="text/css">
+
+
+<!-- color -->
+
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/css/color.css') }}" type="text/css">
+
+    <style>
+        /*custom font*/
+        @import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+        /*basic reset*/
+        #content {
+            position: relative;
+            z-index: 1;
+
+        }
+
+
+
+
+
+        *form styles*/ #msform {
+            width: 400px;
+            margin: 50px auto;
+            text-align: center;
+            position: relative;
+        }
+
+        @media (min-width: 768px) {
+            #msform {
+                width: 50%;
+            }
+        }
+
+        #msform fieldset {
+            background: white;
+            border: 0 none;
+            border-radius: 3px;
+            box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+            padding: 20px 30px;
+            box-sizing: border-box;
+            width: 80%;
+            margin: 0 10%;
+
+            /*stacking fieldsets above each other*/
+            position: relative;
+        }
+
+        /*Hide all except first fieldset*/
+        #msform fieldset:not(:first-of-type) {
+            display: none;
+        }
+
+        /*inputs*/
+        #msform input,
+        #msform textarea {
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            margin-bottom: 10px;
+            width: 100%;
+            box-sizing: border-box;
+            font-family: montserrat;
+            color: #2C3E50;
+            font-size: 13px;
+        }
+
+        /*buttons*/
+        #msform .action-button {
+            width: 100px;
+            background: #fe4614;
+            font-weight: bold;
+            color: white;
+            border: 0 none;
+            border-radius: 1px;
+            cursor: pointer;
+            padding: 10px;
+            margin: 10px 5px;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        #msform .action-button:hover,
+        #msform .action-button:focus {
+            box-shadow: 0 0 0 2px white, 0 0 0 3px #8d39b5;
+        }
+
+        /*headings*/
+        .fs-title {
+            font-size: 15px;
+            text-transform: uppercase;
+            color: #2C3E50;
+            margin-bottom: 10px;
+        }
+
+        .fs-subtitle {
+            font-weight: normal;
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        /*progressbar*/
+        #progressbar {
+            margin-bottom: 30px;
+            overflow: hidden;
+
+            /*CSS counters to number the steps*/
+            counter-reset: step;
+        }
+
+        #progressbar li {
+            list-style-type: none;
+            color: rgb(32, 30, 30);
+            text-transform: uppercase;
+            font-size: 9px;
+            width: 33.33%;
+            float: left;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        #progressbar li:before {
+            content: counter(step);
+            counter-increment: step;
+            width: 20px;
+            line-height: 20px;
+            display: block;
+            font-size: 10px;
+            color: #333;
+            background: rgba(171, 198, 176, 0.664);
+            border-radius: 3px;
+            margin: 0 auto 5px auto;
+
+        }
+
+        /*progressbar connectors*/
+        #progressbar li:after {
+            content: '';
+            width: 100%;
+            height: 2px;
+            background: rgb(223, 112, 112);
+            position: absolute;
+            left: -50%;
+            top: 9px;
+            z-index: -1;
+
+            /*put it behind the numbers*/
+        }
+
+        #progressbar li:first-child:after {
+            /*connector not needed before the first step*/
+            content: none;
+        }
+
+        /*marking active/completed steps green*/
+        /*The number of the step and the connector before it = green*/
+        #progressbar li.active:before,
+        #progressbar li.active:after {
+            background: #8d39b5;
+            color: #8d39b5;
+        }
+
+        /* Profile Picture Upload CSS */
+        .profile-upload {
+            position: relative;
+            display: inline-block;
+            overflow: hidden;
+        }
+
+        .profile-picture-label {
+            display: block;
+            cursor: pointer;
+        }
+
+        .profile-picture-placeholder {
+            width: 120px;
+            /* Adjust as needed */
+            height: 120px;
+            /* Adjust as needed */
+            border-radius: 50%;
+            /* Makes the placeholder circular */
+            border: 2px dashed #ccc;
+            /* Placeholder border */
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            line-height: 120px;
+            /* Center content vertically */
+        }
+
+        .upload-text {
+            display: block;
+            color: #999;
+            transform: scale(2);
+            /* Text color */
+            font-size: 8px;
+            /* Text size */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            margin-bottom: 20px;
+            /* Center text horizontally and vertically */
+        }
+
+        .uploaded-image {
+            display: none;
+            max-width: 100%;
+            /* Ensure image doesn't overflow placeholder */
+            max-height: 100%;
+            /* Ensure image doesn't overflow placeholder */
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+
+<body class="page-about">
+
+    <div id="wrapper">
+        <!-- header begin -->
+        {% include "components/nav2.html" %}
+        <!-- header close -->
+
+        <!-- subheader -->
+        <section id="subheader" data-stellar-background-ratio=".2" class="text-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center fadeScroll relative" data-scroll-speed="2">
+                        <h1>Login Now</h1>
+                        <p class="lead">Do not miss it and be sure to attend</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- subheader close -->
+
+        <!-- content begin -->
+        <div id="content">
+            <div class="container">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">
+                        <ul>
+                        <li>{{ message }}</li>
+                        </ul>
+                    </div>
+                    <script>
+                        setTimeout(function() {
+                          var alertDiv = document.querySelector('.alert-{{ category }}');
+                          if (alertDiv) {
+                            alertDiv.remove();
+                          }
+                        }, 5000); // 5000 milliseconds = 5 seconds
+                      </script>
+                    {% endfor %}
+                {% endif %}
+                {% endwith %}
+                
+                <div class="row">
+
+                    <div class="col-md-12" style="justify-content: center; display: flex;">
+                        
+                        <form id="msform" method='post' action="{{url_for('login')}}">
+                            <!-- progressbar -->
+
+                            <!-- fieldsets -->
+                            <fieldset style="display: flex; flex-direction: column; align-items: center;">
+                                {% if session['account_status']=='pending' %}
+                    <h5>Your account is under review. Once reviewed, you will be able to login. This process usually takes 3-5 working days</h5>
+                    <a href="{{ url_for('index') }}" >Back to Home </a>
+                    {% else %}
+                                <h2 class="fs-title">Login</h2>
+                                <h3 class="fs-subtitle">Enter your email and password</h3>
+                                <input type="text" name="email" placeholder="Email" />
+                                <input type="password" name="pass" placeholder="Password" />
+                                <input type="submit" class="submit action-button" value="Submit" />
+                                <p>or not having an account &nbsp;<a style="color:blue;" href="{{url_for('register')}}"> Register</a></p>
+                                {% endif %}
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- footer begin -->
+        {% include "components/footer.html" %}
+        <!-- footer close -->
+
+        <a href="#" id="back-to-top"></a>
+        <div id="preloader">
+            <div class="preloader1"></div>
+        </div>
+    </div>
+
+    <!-- Javascript Files
+    ================================================== -->
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.isotope.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/easing.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/owl.carousel.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.countTo.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/wow.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.magnific-popup.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/enquire.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.stellar.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.plugin.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.countdown.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/countdown-custom.js') }}"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAc5d1RS_0yWJ1Hyw2hGWfbRZ9KKaxFAZo"></script>
+    <script src="{{ url_for('static', filename='js/map.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/designesia.js') }}"></script>
+    <script>
+
+        //jQuery time
+        var current_fs, next_fs, previous_fs; //fieldsets
+        var left, opacity, scale; //fieldset properties which we will animate
+        var animating; //flag to prevent quick multi-click glitches
+
+        $(".next").click(function () {
+            if (animating) return false;
+            animating = true;
+
+            current_fs = $(this).parent();
+            next_fs = $(this).parent().next();
+
+            //activate next step on progressbar using the index of next_fs
+            $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+
+            //show the next fieldset
+            next_fs.show();
+            //hide the current fieldset with style
+            current_fs.animate({ opacity: 0 }, {
+                step: function (now, mx) {
+                    //as the opacity of current_fs reduces to 0 - stored in "now"
+                    //1. scale current_fs down to 80%
+                    scale = 1 - (1 - now) * 0.2;
+                    //2. bring next_fs from the right(50%)
+                    left = (now * 50) + "%";
+                    //3. increase opacity of next_fs to 1 as it moves in
+                    opacity = 1 - now;
+                    current_fs.css({
+                        'transform': 'scale(' + scale + ')',
+                        'position': 'relative'
+                    });
+                    next_fs.css({ 'left': left, 'opacity': opacity });
+                },
+                duration: 800,
+                complete: function () {
+                    current_fs.hide();
+                    animating = false;
+                },
+                //this comes from the custom easing plugin
+                easing: 'easeInOutBack'
+            });
+        });
+
+        $(".previous").click(function () {
+            if (animating) return false;
+            animating = true;
+
+            current_fs = $(this).parent();
+            previous_fs = $(this).parent().prev();
+
+            //de-activate current step on progressbar
+            $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+
+            //show the previous fieldset
+            previous_fs.show();
+            //hide the current fieldset with style
+            current_fs.animate({ opacity: 0 }, {
+                step: function (now, mx) {
+                    //as the opacity of current_fs reduces to 0 - stored in "now"
+                    //1. scale previous_fs from 80% to 100%
+                    scale = 0.8 + (1 - now) * 0.2;
+                    //2. take current_fs to the right(50%) - from 0%
+                    left = ((1 - now) * 50) + "%";
+                    //3. increase opacity of previous_fs to 1 as it moves in
+                    opacity = 1 - now;
+                    current_fs.css({ 'left': left });
+                    previous_fs.css({ 'transform': 'scale(' + scale + ')', 'opacity': opacity });
+                },
+                duration: 800,
+                complete: function () {
+                    current_fs.hide();
+                    animating = false;
+                },
+                //this comes from the custom easing plugin
+                easing: 'easeInOutBack'
+            });
+        });
+
+
+        function previewImage(event) {
+            var reader = new FileReader();
+            reader.onload = function () {
+                var output = document.querySelector('.uploaded-image');
+                var uploadText = document.querySelector('.upload-text');
+                output.style.display = 'block';
+                output.src = reader.result;
+                uploadText.style.display = 'none';
+            }
+
+            reader.readAsDataURL(event.target.files[0]);
+        }
+
+
+    </script>
+
+</body>
+
+</html>

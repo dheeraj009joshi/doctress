@@ -1,0 +1,37 @@
+{% extends "home/base.html" %}  {% block title %} Doctress {% endblock %}
+
+{% block stylesheets %}  
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}" type="text/css">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/animate.css') }}" type="text/css">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/owl.carousel.css') }}" type="text/css">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/magnific-popup.css') }}" type="text/css">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/jquery.countdown.css') }}" type="text/css">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
+<!-- background -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/bg.css') }}" type="text/css">
+<link rel="icon" href="static\images\logo-doctressold.png">
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    
+
+<!-- color -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/colors/orange.css') }}" type="text/css">
+ {% endblock stylesheets %}
+{% block content %}
+<h1>start from here</h1>
+
+
+
+
+{% include "components/footer.html" %}
+
+
+{% endblock content %}
+
+ 
+{% block javascripts %} 
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+
+
+    {% endblock javascripts %}

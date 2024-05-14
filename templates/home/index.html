@@ -1,0 +1,1341 @@
+{% extends "home/base.html" %}  {% block title %} Doctress {% endblock %}
+
+{% block stylesheets %}  
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}" type="text/css">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/animate.css') }}" type="text/css">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/owl.carousel.css') }}" type="text/css">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/magnific-popup.css') }}" type="text/css">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/jquery.countdown.css') }}" type="text/css">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
+<!-- background -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/bg.css') }}" type="text/css">
+<link rel="icon" href="static\images\logo-doctressold.png">
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    
+
+<!-- color -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/colors/orange.css') }}" type="text/css">
+ {% endblock stylesheets %}
+{% block content %}
+
+<body id="homepage" >
+    <div id="wrapper">
+
+        <!-- header begin -->
+        {% include "components/nav.html" %}
+        <!-- header close -->
+
+        <!-- content begin -->
+        <div id="content" class="no-bottom no-top">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">
+                        <ul>
+                        <li>{{ message }}</li>
+                        </ul>
+                    </div>
+                    <script>
+                        setTimeout(function() {
+                          var alertDiv = document.querySelector('.alert-{{ category }}');
+                          if (alertDiv) {
+                            alertDiv.remove();
+                          }
+                        }, 5000); // 5000 milliseconds = 5 seconds
+                      </script>
+                    {% endfor %}
+                {% endif %}
+                {% endwith %}
+            <div id="top"></div>
+
+            <!-- section begin -->
+            <section id="section-intro-8" class="full-height no-top no-bottom text-light"
+            data-stellar-background-ratio=".2" style="background-position: center;">
+                <div class="overlay-bg t50">
+
+                    <div class="center-y fadeScroll text-center relative" data-scroll-speed="4">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="spacer-double"></div>
+                                    
+                                    
+                                     <!--<span><i class="fa fa-map-marker id-color"></i>Simis world vegan cafe film Nagar Hyderabad</span>-->
+                                    
+                                    </div>
+                                     <div class="spacer-single"></div>
+                                     <h2><span >The App is Launching Soon...</span></h2>
+                                     <div class="spacer-single"></div>
+                                    <h1 class="ultra-big">DOCTRE<span style="color:#fe4614">SS</span></h1>
+                                    <div class="spacer-single"></div>
+                                    <h2>Lady Doctors Nexus</h2>
+                                    <div class="spacer-single"></div>
+                                    {% if "login" in session and session['login']==True and session['user']['membership']==1 %}
+                                    <a href="{{ url_for('profile') }}" class="btn btn-custom">Go to profile</a>
+                                    {% else %}
+                                    <a href="{{ url_for('register') }}" class="btn btn-custom">Register for Doctors</a>&nbsp;
+                                    
+                                    <a href="{{ url_for('login') }}" class="btn btn-border">Login as Doctor</a>
+                                    <div class="spacer-single"></div>
+                                    <h3>Or</h3>
+                                    <a href="{{ url_for('register_service_provider') }}" 
+                                    class="btn btn-custom">Register as a service provider</a>&nbsp;
+                                    <a href="{{ url_for('login_service_provider') }}" class="btn btn-border">Login as a service provider</a>
+                                  <!--  <h3>Or</h3>
+                                   <a class="btn btn-border"><div class="g-signin2" data-onsuccess="onSignIn"></div></a> -->
+                                     <p>Register to know upcoming events</p>
+                                    {% endif %}
+                                   
+                                    
+                                    
+                                    
+                                    <div class="spacer-double"></div>
+                                    <div class="spacer-double"></div>
+                                    {# <div id="defaultCountdown" class="countdown-s1"></div> #}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </section>
+            <!-- section close -->
+
+            <!-- section begin -->
+            <section id="section-intro-text2" data-bgcolor="#eeeeee">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-5 wow fadeInUp">
+                            <img src="static\images\doctress\doc8.png" class="img-responsive" alt="" style="mix-blend-mode: multiply;">
+                        </div>
+
+                        <div class="col-md-7 wow fadeInRight">
+                            <h2>Dear Fellow Female Doctors</h2>
+                            <ul><p class="lead">
+                                <li>When was the last time you took a break from work to indulge in a hobby or an activity you truly enjoy?</li>
+                                <li>Do you prioritize self-care and make time for activities you enjoy outside of work?</li>
+                                <li>Did you recently get connected with other female doctors across various specialities to network and share experiences?</li>
+                                <li>Have you found it challenging to participate in medical conferences or events due to gender bias?</li>
+                                <li>Do you feel like your voice is unheard or dismissed in your workplace or industry?</li>
+                                <li>How often do you make the time to prioritize your mental health?</li>
+                                <li>How much do you think your work is acknowledged? </li>
+                                <li>Did you ever want to support a fellow female doctor and didn't know how?</li>
+                                <li>Do you think a fest once in a blue moon is enough to get liberated and rejoice in memories?</li>
+                                <li>How much of your domestic and work life made you forget who you actually were?</li><br>
+                            </ul>
+
+                                <span style="color:#fe4614"><b>We Feel You. We Hear You.</b></span>
+                                </p>
+
+                           {# <div class="de_tab tab_style_2">
+                                <ul class="de_nav">
+                                    <li class="active" data-link="#section-services-tab">
+                                        <span>Topics</span>
+                                    </li>
+                                    <li data-link="#section-services-tab">
+                                        <span>Workshops</span>
+                                    </li>
+                                    <li data-link="#section-services-tab">
+                                        <span>Information</span>
+                                    </li>
+                                </ul>
+
+                                <div class="de_tab_content text-left">
+
+                                    <div id="tab_a1" class="tab_single_content">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <img src="images/misc/1.jpg" class="img-circle img-responsive" alt="">
+                                            </div>
+                                            <div class="col-md-9">
+                                                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                                                accusantium doloremque laudantium, totam rem aperiam, eaque
+                                                ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
+                                                dicta
+                                                sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur
+                                                aut
+                                                odit aut fugit, sed quia consequuntur magni dolores.
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div id="tab_a2" class="tab_single_content">
+                                        <div class="row">
+                                            <div class="col-md-9">
+                                                Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut
+                                                fugit, sed quia consequuntur magni dolores eos qui ratione
+                                                voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum
+                                                quia
+                                                dolor sit. Sed ut perspiciatis unde omnis iste natus error sit
+                                                voluptatem
+                                                accusantium doloremque laudantium, totam rem aperiam.
+                                            </div>
+                                            <div class="col-md-3">
+                                                <img src="images/misc/2.jpg" class="img-circle img-responsive" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div id="tab_a3" class="tab_single_content">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <img src="images/misc/3.jpg" class="img-circle img-responsive" alt="">
+                                            </div>
+                                            <div class="col-md-9">
+                                                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                                                accusantium doloremque laudantium, totam rem aperiam, eaque
+                                                ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
+                                                dicta
+                                                sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur
+                                                aut
+                                                odit aut fugit, sed quia consequuntur magni dolores eos qui ratione.
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div> #}
+
+                    </div>
+                </div>
+
+        </div>
+    </div>
+    </div>
+    </section>
+    <!-- section close -->
+
+
+    <!-- section begin -->
+    
+    <!-- section close -->
+
+    <!-- section begin -->
+    <section id="section-fun-facts" class="no-top no-bottom text-light" data-stellar-background-ratio=".2">
+        <div class="overlay-bg pt80 pb80">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-md-3 wow fadeIn" data-wow-delay="0">
+                        <div class="de_count">
+                            <i class="icon_globe id-color" data-animation="fadeInDown" data-delay="0"></i>
+                            <div style="display: flex; flex-direction: row; justify-content: center; gap: 10px; align-items: center; width: 100%">
+                                <h3 class="timer id-color" data-to="10" data-speed="1000" >0</h3>
+                            <h4 style="font-size: 22px; margin-top: 0px;">Years and More</h4>
+                            </div>
+                            
+                            
+                        </div>
+                    </div>
+
+                    {# <div class="col-md-3 wow fadeIn" data-wow-delay=".25s">
+                        <div class="de_count">
+                            <i class="icon_easel  id-color" data-animation="fadeInDown" data-delay="200"></i>
+                            <h3 class="timer" data-to="300" data-speed="2500">0</h3>
+                            <span>Topics</span>
+                        </div>
+                    </div> #}
+
+                    {#<div class="col-md-3 wow fadeIn" data-wow-delay=".5s">
+                        <div class="de_count">
+                            <i class="icon_headphones  id-color" data-animation="fadeInDown" data-delay="400"></i>
+                            <h3 class="timer" data-to="50" data-speed="2500">0</h3>
+                            <span>Speakers</span>
+                        </div>
+                    </div>#}
+
+                    {#<div class="col-md-3 wow fadeIn" data-wow-delay=".75s">
+                        <div class="de_count">
+                            <i class="icon_globe" data-animation="fadeInDown" data-delay="600"></i>
+                            <h3 class="timer id-color" data-to="20" data-speed="2500">0</h3>
+                            <span>Awards</span>
+                        </div>
+                    </div>#}
+                </div>
+                <div class="row">
+                    <p class="lead">
+                        <span style="color: white; text-decoration: none; font-size: 2rem;" >The journey to becoming a doctor is undoubtedly a laborious one</span><br>Long hours, high stress, and the constant demands of the profession can leave you feeling drained, overwhelmed, and disconnected from your true self. Unfortunately, for many women, the pressures of marriage can further limit their time and compromise their sense of self. It's natural to feel like we're losing ourselves in the routine of it all, with seemingly no way out. But what if we told you that there is a way to reclaim your passion, rediscover your purpose, and find balance in your life and work? Join us on a journey to break free from the grind, heal from burnout, and rediscover the joy and fulfillment of being a female doctor - by celebrating yourself.
+                        </p>
+                        
+                        <span style="color:#fe4614"><p>Come, lets get liberated</p></span>
+                                    <!--<a href="profile.html" class="btn btn-custom">Learn More</a>-->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- section close -->
+
+    <section id="section-intro-text" data-bgcolor="#eeeeee">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5 wow fadeInUp">
+                    <img src="static/images/doc1.png" class="img-responsive" alt="">
+                </div>
+
+                <div class="col-md-7 wow fadeInRight">
+                    <h2>Introducing Doctress</h2>
+                    <p class="lead">Doctress is a one-of-its-kind community that prioritizes the interests of women doctors. Our ecosystem is designed to promote growth and mental well-being, empowering female doctors to express themselves without fear of bias or judgement. We believe that women doctors deserve a platform to feel privileged, express their opinions and lead the way in their fields. We understand that women doctors struggle to balance their personal and professional lives. That's why we provide support at various levels, allowing you to rediscover the interests that make you who you are. Come and be a part of this like-minded community, where your voice is heard and your personality is celebrated. This is a safe space to let loose, be yourself and feel contented.<br>
+                        
+                        <span style="color:#fe4614"><b>What are you waiting for??</b></span>
+                        </p>
+
+                   {# <div class="de_tab tab_style_2">
+                        <ul class="de_nav">
+                            <li class="active" data-link="#section-services-tab">
+                                <span>Topics</span>
+                            </li>
+                            <li data-link="#section-services-tab">
+                                <span>Workshops</span>
+                            </li>
+                            <li data-link="#section-services-tab">
+                                <span>Information</span>
+                            </li>
+                        </ul>
+
+                        <div class="de_tab_content text-left">
+
+                            <div id="tab_a1" class="tab_single_content">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <img src="images/misc/1.jpg" class="img-circle img-responsive" alt="">
+                                    </div>
+                                    <div class="col-md-9">
+                                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                                        accusantium doloremque laudantium, totam rem aperiam, eaque
+                                        ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
+                                        dicta
+                                        sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur
+                                        aut
+                                        odit aut fugit, sed quia consequuntur magni dolores.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="tab_a2" class="tab_single_content">
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut
+                                        fugit, sed quia consequuntur magni dolores eos qui ratione
+                                        voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum
+                                        quia
+                                        dolor sit. Sed ut perspiciatis unde omnis iste natus error sit
+                                        voluptatem
+                                        accusantium doloremque laudantium, totam rem aperiam.
+                                    </div>
+                                    <div class="col-md-3">
+                                        <img src="images/misc/2.jpg" class="img-circle img-responsive" alt="">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="tab_a3" class="tab_single_content">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <img src="images/misc/3.jpg" class="img-circle img-responsive" alt="">
+                                    </div>
+                                    <div class="col-md-9">
+                                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                                        accusantium doloremque laudantium, totam rem aperiam, eaque
+                                        ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
+                                        dicta
+                                        sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur
+                                        aut
+                                        odit aut fugit, sed quia consequuntur magni dolores eos qui ratione.
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    </div> #}
+
+            </div>
+        </div>
+
+</div>
+</div>
+</div>
+</section>
+
+
+
+<section id="section-intro-text">
+    <div class="container">
+        <div class="row">
+            
+            <div class="col-md-4 text-center wow fadeInUp">
+                <div class="col-md-3" style="width:100%">
+                    <img src="static\images\doctress\express.png" class=" img-responsive" alt=""
+                        style="margin-bottom: 10px; width: 50%">
+                    <h3>Express</h3>
+                    <p>Looking to unwind and explore your creative side outside of medicine? At Doctress, we
+                        offer a variety of extracurricular activities to help you be your authentic self.
+                        Our community provides a safe and welcoming space where you can relax and let your
+                        guard down without the pressure of being treated like a celebrity. Join us for our
+                        weekend events, where you can either participate or simply enjoy the show as a
+                        member of the audience. From dance, culinary arts, to singing, fashion, and art
+                        exhibitions, there's something for everyone.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-4 text-center wow fadeInUp">
+                <div class="col-md-3" style="width:100%">
+                    <img src="static\images\doctress\network.png" class=" img-responsive" alt=""
+                        style="margin-bottom: 10px; width: 50%">
+                    <h3>Network</h3>
+                    <p>Be a part of our community where women doctors can take charge. We provide a platform
+                        where you can network with like-minded women professionals across specialties, build
+                        rapport and strengthen your portfolio. Our community is exclusive where you can feel
+                        free to share your thoughts as well as ideas and have a say in the events that are
+                        organised. Unlike the usual conferences in the medical field, which might be
+                        male-centric, we provide opportunities for women to be the forefront and lead the
+                        events and panels. <br><br>
+                        <span style="color:#fe4614">Find your tribe and empower yourself with
+                            Doctress!</span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-4 text-center wow fadeInUp">
+                <div class="col-md-3" style="width:100%">
+                    <img src="static\images\doctress\grow.png" class=" img-responsive" alt=""
+                        style="margin-bottom: 10px; width: 50%">
+                    <h3>Grow</h3>
+                    <p>Doctress is committed to provide support to female doctors at all levels, including
+                        those in peripheries and small towns. We understand that mental health is a critical
+                        issue for female doctors and it’s neglected due to the busy nature of work and
+                        hesitancy to reach out. That's why we offer mental health sessions, workshops and
+                        one-on-one counseling. Our sessions are available both offline and online, ensuring
+                        flexibility and accessibility regardless of their location. We also understand that
+                        support from other female doctors can be very valuable, which is why we have created
+                        a community that enables women doctors to support one another.</p>
+                </div>
+            </div>
+
+            
+
+        </div>
+    </div>
+</section>
+
+<section id="section-intro-text2" data-bgcolor="#eeeeee">
+    <div class="container">
+        <div class="row" style="display: flex; justify-content: center; align-items: center; ">
+            <h2 style="color:#fe4614">Event Gallery</h2>
+        </div>
+        <div class="spacer-double"></div>
+        <div class="row">
+            <div class="swiper-container" >
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="static\images\Doctress_Carousel\1.jpg"></div>
+                    
+                    <div class="swiper-slide"><img src="static\images\Doctress_Carousel\3.jpg"></div>
+                    
+                    <div class="swiper-slide"><img src="static\images\Doctress_Carousel\6.jpg"></div>
+                    <div class="swiper-slide"><img src="static\images\Doctress_Carousel\7.jpg"></div>
+                    <div class="swiper-slide"><img src="static\images\Doctress_Carousel\8.jpg"></div>
+                    <div class="swiper-slide"><img src="static\images\Doctress_Carousel\9.jpg"></div>
+                    <div class="swiper-slide"><img src="static\images\Doctress_Carousel\10.jpg"></div>
+                    <div class="swiper-slide"><img src="static\images\Doctress_Carousel\11.jpg"></div>
+                    <div class="swiper-slide"><img src="static\images\Doctress_Carousel\12.jpg"></div>
+                    <div class="swiper-slide"><img src="static\images\Doctress_Carousel\13.jpg"></div>
+                    <div class="swiper-slide"><img src="static\images\Doctress_Carousel\14.jpg"></div>
+                    <div class="swiper-slide"><img src="static\images\Doctress_Carousel\15.jpg"></div>
+                    <div class="swiper-slide"><img src="static\images\Doctress_Carousel\16.jpg"></div>
+                    <div class="swiper-slide"><img src="static\images\Doctress_Carousel\17.jpg"></div>
+                </div>
+            </div>
+        </div>
+        <div class="spacer-double"></div>
+        <div class="row" style="display: flex; justify-content: center; align-items: center;">
+        </div>
+    </div>
+</section>
+
+
+    <!-- section begin -->
+    {# <section id="section-schedules" aria-label="section-services-tab" data-bgcolor="#f5f5f5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center wow fadeInUp">
+                    <h2><span class="id-color">Event</span> Schedules</h2>
+                    <p class="lead">Do not miss it and be sure to attend</p>
+                    <div class="spacer-single"></div>
+                </div>
+
+                <div class="col-md-12 wow fadeInUp">
+                    <div class="de_tab tab_style_4 text-center">
+                        <ul class="de_nav">
+                            <li class="active" data-link="#section-services-tab">
+                                <h3>Day <span>01</span></h3>
+                                <h4>3 August, 2023</h4>
+                            </li>
+                            <li data-link="#section-services-tab">
+                                <h3>Day <span>02</span></h3>
+                                <h4>4 August, 2023</h4>
+                            </li>
+                            <li data-link="#section-services-tab">
+                                <h3>Day <span>03</span></h3>
+                                <h4>5 August, 2023</h4>
+                            </li>
+                            <li data-link="#section-services-tab">
+                                <h3>Day <span>04</span></h3>
+                                <h4>6 August, 2023</h4>
+                            </li>
+                            <li data-link="#section-services-tab">
+                                <h3>Day <span>05</span></h3>
+                                <h4>7 August, 2023</h4>
+                            </li>
+                        </ul>
+
+                        <div class="de_tab_content text-left">
+
+                            <div id="tab1" class="tab_single_content">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="schedule-listing">
+                                            <div class="schedule-item">
+                                                <div class="sc-time">08:00 - 10:00 AM</div>
+                                                <div class="sc-pic">
+                                                    <img src="images/team/1.jpg" class="img-circle" alt="">
+                                                </div>
+                                                <div class="sc-name">
+                                                    <h4>Ben Sheridan</h4>
+                                                    <span>Founder & CEO</span>
+                                                </div>
+                                                <div class="sc-info">
+                                                    <h3>Introduction WordPress</h3>
+                                                    <p>In this session we will discuss about digital topics in detail.
+                                                        You need
+                                                        laptops and other tech support equipment. This session will last
+                                                        for 2 hours. So prepare yourself.</p>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="schedule-listing">
+                                            <div class="schedule-item">
+                                                <div class="sc-time">12:00 - 14:00 PM</div>
+                                                <div class="sc-pic">
+                                                    <img src="images/team/2.jpg" class="img-circle" alt="">
+                                                </div>
+                                                <div class="sc-name">
+                                                    <h4>Sophie Lana</h4>
+                                                    <span>Founder & CEO</span>
+                                                </div>
+                                                <div class="sc-info">
+                                                    <h3>Getting Started With WordPress</h3>
+                                                    <p>In this session we will discuss about digital topics in detail.
+                                                        You need
+                                                        laptops and other tech support equipment. This session will last
+                                                        for 2 hours. So prepare yourself.</p>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="schedule-listing">
+                                            <div class="schedule-item">
+                                                <div class="sc-time">16:00 - 18:00 PM</div>
+                                                <div class="sc-pic">
+                                                    <img src="images/team/3.jpg" class="img-circle" alt="">
+                                                </div>
+                                                <div class="sc-name">
+                                                    <h4>James Hoult</h4>
+                                                    <span>Founder & CEO</span>
+                                                </div>
+                                                <div class="sc-info">
+                                                    <h3>Prepare Your Hosting &amp; Domain</h3>
+                                                    <p>In this session we will discuss about digital topics in detail.
+                                                        You need
+                                                        laptops and other tech support equipment. This session will last
+                                                        for 2 hours. So prepare yourself.</p>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="schedule-listing">
+                                            <div class="schedule-item">
+                                                <div class="sc-time">20:00 - 22:00 PM</div>
+                                                <div class="sc-pic">
+                                                    <img src="images/team/4.jpg" class="img-circle" alt="">
+                                                </div>
+                                                <div class="sc-name">
+                                                    <h4>Oscar Helman</h4>
+                                                    <span>Founder & CEO</span>
+                                                </div>
+                                                <div class="sc-info">
+                                                    <h3>WordPress Theme Development Basic</h3>
+                                                    <p>In this session we will discuss about digital topics in detail.
+                                                        You need
+                                                        laptops and other tech support equipment. This session will last
+                                                        for 2 hours. So prepare yourself.</p>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="tab2" class="tab_single_content">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="schedule-listing">
+                                            <div class="schedule-item">
+                                                <div class="sc-time">08:00 - 12:00 AM</div>
+                                                <div class="sc-pic">
+                                                    <img src="images/team/5.jpg" class="img-circle" alt="">
+                                                </div>
+                                                <div class="sc-name">
+                                                    <h4>Rose Shipp</h4>
+                                                    <span>Founder & CEO</span>
+                                                </div>
+                                                <div class="sc-info">
+                                                    <h3>WordPress Theme Development Basic 2</h3>
+                                                    <p>In this session we will discuss about digital topics in detail.
+                                                        You need
+                                                        laptops and other tech support equipment. This session will last
+                                                        for 2 hours. So prepare yourself.</p>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="schedule-listing">
+                                            <div class="schedule-item">
+                                                <div class="sc-time">12:00 - 14:00 PM</div>
+                                                <div class="sc-pic">
+                                                    <img src="images/team/6.jpg" class="img-circle" alt="">
+                                                </div>
+                                                <div class="sc-name">
+                                                    <h4>Isaac Nicholas</h4>
+                                                    <span>Founder & CEO</span>
+                                                </div>
+                                                <div class="sc-info">
+                                                    <h3>Getting Started With Photoshop</h3>
+                                                    <p>In this session we will discuss about digital topics in detail.
+                                                        You need
+                                                        laptops and other tech support equipment. This session will last
+                                                        for 2 hours. So prepare yourself.</p>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="schedule-listing">
+                                            <div class="schedule-item">
+                                                <div class="sc-time">16:00 - 18:00 PM</div>
+                                                <div class="sc-pic">
+                                                    <img src="images/team/7.jpg" class="img-circle" alt="">
+                                                </div>
+                                                <div class="sc-name">
+                                                    <h4>John Arnold</h4>
+                                                    <span>Founder & CEO</span>
+                                                </div>
+                                                <div class="sc-info">
+                                                    <h3>Getting Started With HTML &amp; CSS</h3>
+                                                    <p>In this session we will discuss about digital topics in detail.
+                                                        You need
+                                                        laptops and other tech support equipment. This session will last
+                                                        for 2 hours. So prepare yourself.</p>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="schedule-listing">
+                                            <div class="schedule-item">
+                                                <div class="sc-time">20:00 - 22:00 PM</div>
+                                                <div class="sc-pic">
+                                                    <img src="images/team/1.jpg" class="img-circle" alt="">
+                                                </div>
+                                                <div class="sc-name">
+                                                    <h4>Ben Sheridan</h4>
+                                                    <span>Founder & CEO</span>
+                                                </div>
+                                                <div class="sc-info">
+                                                    <h3>Convert From PSD to HTML</h3>
+                                                    <p>In this session we will discuss about digital topics in detail.
+                                                        You need
+                                                        laptops and other tech support equipment. This session will last
+                                                        for 2 hours. So prepare yourself.</p>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="tab3" class="tab_single_content">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="schedule-listing">
+                                            <div class="schedule-item">
+                                                <div class="sc-time">08:00 - 12:00 AM</div>
+                                                <div class="sc-pic">
+                                                    <img src="images/team/2.jpg" class="img-circle" alt="">
+                                                </div>
+                                                <div class="sc-name">
+                                                    <h4>Sophie Lana</h4>
+                                                    <span>Founder & CEO</span>
+                                                </div>
+                                                <div class="sc-info">
+                                                    <h3>Make Your HTML to WordPress</h3>
+                                                    <p>In this session we will discuss about digital topics in detail.
+                                                        You need
+                                                        laptops and other tech support equipment. This session will last
+                                                        for 2 hours. So prepare yourself.</p>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="schedule-listing">
+                                            <div class="schedule-item">
+                                                <div class="sc-time">12:00 - 14:00 PM</div>
+                                                <div class="sc-pic">
+                                                    <img src="images/team/3.jpg" class="img-circle" alt="">
+                                                </div>
+                                                <div class="sc-name">
+                                                    <h4>James Hoult</h4>
+                                                    <span>Founder & CEO</span>
+                                                </div>
+                                                <div class="sc-info">
+                                                    <h3>Introduction Search Engine Optimisation</h3>
+                                                    <p>In this session we will discuss about digital topics in detail.
+                                                        You need
+                                                        laptops and other tech support equipment. This session will last
+                                                        for 2 hours. So prepare yourself.</p>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="schedule-listing">
+                                            <div class="schedule-item">
+                                                <div class="sc-time">16:00 - 18:00 PM</div>
+                                                <div class="sc-pic">
+                                                    <img src="images/team/4.jpg" class="img-circle" alt="">
+                                                </div>
+                                                <div class="sc-name">
+                                                    <h4>Oscar Helman</h4>
+                                                    <span>Founder & CEO</span>
+                                                </div>
+                                                <div class="sc-info">
+                                                    <h3>Make SEO Friendly WP Theme</h3>
+                                                    <p>In this session we will discuss about digital topics in detail.
+                                                        You need
+                                                        laptops and other tech support equipment. This session will last
+                                                        for 2 hours. So prepare yourself.</p>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="schedule-listing">
+                                            <div class="schedule-item">
+                                                <div class="sc-time">20:00 - 22:00 AM</div>
+                                                <div class="sc-pic">
+                                                    <img src="images/team/5.jpg" class="img-circle" alt="">
+                                                </div>
+                                                <div class="sc-name">
+                                                    <h4>Rose Shipp</h4>
+                                                    <span>Founder & CEO</span>
+                                                </div>
+                                                <div class="sc-info">
+                                                    <h3>Advanced Theme Development</h3>
+                                                    <p>In this session we will discuss about digital topics in detail.
+                                                        You need
+                                                        laptops and other tech support equipment. This session will last
+                                                        for 2 hours. So prepare yourself.</p>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="tab4" class="tab_single_content">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="schedule-listing">
+                                            <div class="schedule-item">
+                                                <div class="sc-time">08:00 - 12:00 AM</div>
+                                                <div class="sc-pic">
+                                                    <img src="images/team/6.jpg" class="img-circle" alt="">
+                                                </div>
+                                                <div class="sc-name">
+                                                    <h4>Isaac Nicholas</h4>
+                                                    <span>Founder & CEO</span>
+                                                </div>
+                                                <div class="sc-info">
+                                                    <h3>Advanced Theme Development 2</h3>
+                                                    <p>In this session we will discuss about digital topics in detail.
+                                                        You need
+                                                        laptops and other tech support equipment. This session will last
+                                                        for 2 hours. So prepare yourself.</p>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="schedule-listing">
+                                            <div class="schedule-item">
+                                                <div class="sc-time">12:00 - 14:00 PM</div>
+                                                <div class="sc-pic">
+                                                    <img src="images/team/7.jpg" class="img-circle" alt="">
+                                                </div>
+                                                <div class="sc-name">
+                                                    <h4>John Arnold</h4>
+                                                    <span>Founder & CEO</span>
+                                                </div>
+                                                <div class="sc-info">
+                                                    <h3>Make Mobile Friendly Theme</h3>
+                                                    <p>In this session we will discuss about digital topics in detail.
+                                                        You need
+                                                        laptops and other tech support equipment. This session will last
+                                                        for 2 hours. So prepare yourself.</p>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="schedule-listing">
+                                            <div class="schedule-item">
+                                                <div class="sc-time">16:00 - 18:00 PM</div>
+                                                <div class="sc-pic">
+                                                    <img src="images/team/1.jpg" class="img-circle" alt="">
+                                                </div>
+                                                <div class="sc-name">
+                                                    <h4>Ben Sheridan</h4>
+                                                    <span>Founder & CEO</span>
+                                                </div>
+                                                <div class="sc-info">
+                                                    <h3>Quality Asurance Your WP Theme</h3>
+                                                    <p>In this session we will discuss about digital topics in detail.
+                                                        You need
+                                                        laptops and other tech support equipment. This session will last
+                                                        for 2 hours. So prepare yourself.</p>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="schedule-listing">
+                                            <div class="schedule-item">
+                                                <div class="sc-time">20:00 - 22:00 PM</div>
+                                                <div class="sc-pic">
+                                                    <img src="images/team/2.jpg" class="img-circle" alt="">
+                                                </div>
+                                                <div class="sc-name">
+                                                    <h4>Sophie Lana</h4>
+                                                    <span>Founder & CEO</span>
+                                                </div>
+                                                <div class="sc-info">
+                                                    <h3>Getting Started With WP Plugin</h3>
+                                                    <p>In this session we will discuss about digital topics in detail.
+                                                        You need
+                                                        laptops and other tech support equipment. This session will last
+                                                        for 2 hours. So prepare yourself.</p>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="tab5" class="tab_single_content">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="schedule-listing">
+                                            <div class="schedule-item">
+                                                <div class="sc-time">08:00 - 12:00 AM</div>
+                                                <div class="sc-pic">
+                                                    <img src="images/team/1.jpg" class="img-circle" alt="">
+                                                </div>
+                                                <div class="sc-name">
+                                                    <h4>Ben Sheridan</h4>
+                                                    <span>Founder & CEO</span>
+                                                </div>
+                                                <div class="sc-info">
+                                                    <h3>WP Plugin Development</h3>
+                                                    <p>In this session we will discuss about digital topics in detail.
+                                                        You need
+                                                        laptops and other tech support equipment. This session will last
+                                                        for 2 hours. So prepare yourself.</p>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="schedule-listing">
+                                            <div class="schedule-item">
+                                                <div class="sc-time">08:00 - 12:00 AM</div>
+                                                <div class="sc-pic">
+                                                    <img src="images/team/2.jpg" class="img-circle" alt="">
+                                                </div>
+                                                <div class="sc-name">
+                                                    <h4>Ben Sheridan</h4>
+                                                    <span>Founder & CEO</span>
+                                                </div>
+                                                <div class="sc-info">
+                                                    <h3>Customize Your WordPress Theme</h3>
+                                                    <p>In this session we will discuss about digital topics in detail.
+                                                        You need
+                                                        laptops and other tech support equipment. This session will last
+                                                        for 2 hours. So prepare yourself.</p>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="schedule-listing">
+                                            <div class="schedule-item">
+                                                <div class="sc-time">08:00 - 12:00 AM</div>
+                                                <div class="sc-pic">
+                                                    <img src="images/team/3.jpg" class="img-circle" alt="">
+                                                </div>
+                                                <div class="sc-name">
+                                                    <h4>James Hoult</h4>
+                                                    <span>Founder & CEO</span>
+                                                </div>
+                                                <div class="sc-info">
+                                                    <h3>Interview With WP Author</h3>
+                                                    <p>In this session we will discuss about digital topics in detail.
+                                                        You need
+                                                        laptops and other tech support equipment. This session will last
+                                                        for 2 hours. So prepare yourself.</p>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="schedule-listing">
+                                            <div class="schedule-item">
+                                                <div class="sc-time">08:00 - 12:00 AM</div>
+                                                <div class="sc-pic">
+                                                    <img src="images/team/4.jpg" class="img-circle" alt="">
+                                                </div>
+                                                <div class="sc-name">
+                                                    <h4>Oscar Helman</h4>
+                                                    <span>Founder & CEO</span>
+                                                </div>
+                                                <div class="sc-info">
+                                                    <h3>Close Event Ceremony &amp; Doorprize</h3>
+                                                    <p>In this session we will discuss about digital topics in detail.
+                                                        You need
+                                                        laptops and other tech support equipment. This session will last
+                                                        for 2 hours. So prepare yourself.</p>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> #}
+    <!-- section close -->
+
+    <!-- section begin -->
+    {#<section id="section-testimonial" class="text-light no-top no-bottom" data-stellar-background-ratio=".2">
+        <div class="overlay-bg pt80 pb80">
+            <div class="container relative">
+                <div class="row">
+                    <div class="col-md-12 text-center wow fadeInUp">
+                        <h2><span class="id-color">They</span> Says</h2>
+                        <div class="spacer-single"></div>
+                    </div>
+
+
+                    <div id="testimonial-carousel" class="de_carousel wow fadeInUp">
+
+                        <div class="col-md-6 item">
+                            <div class="de_testi opt-2">
+                                <blockquote>
+                                    <p>I'm very happy with this event. I will recommend this to my family and friends.
+                                        The speakers
+                                        are professional. It's worth quality for the price.</p>
+                                    <div class="de_testi_by">
+                                        John, Freelancer
+                                    </div>
+                                </blockquote>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 item">
+                            <div class="de_testi opt-2">
+                                <blockquote>
+                                    <p>A wonderful event thank you! The best event as it proved by quality. I learn many
+                                        digital
+                                        things. I would definitely return for future events.</p>
+                                    <div class="de_testi_by">
+                                        Sarah, College Student
+                                    </div>
+                                </blockquote>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 item">
+                            <div class="de_testi opt-2">
+                                <blockquote>
+                                    <p>I will recommend this to my family and friends. I'm very happy with this event.
+                                        The speakers
+                                        are professional. It's worth quality for the price.</p>
+                                    <div class="de_testi_by">
+                                        Michael, Office Staff
+                                    </div>
+                                </blockquote>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 item">
+                            <div class="de_testi opt-2">
+                                <blockquote>
+                                    <p>I learn many digital things! A wonderful event thank you! The best event as it
+                                        proved
+                                        by quality. I would definitely return for future events.</p>
+                                    <div class="de_testi_by">
+                                        Jenny, Student
+                                    </div>
+                                </blockquote>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>#}
+    <!-- section close -->
+
+    <!-- section begin -->
+    {#<section id="section-sponsors">
+        <div class="container relative">
+            <div class="row">
+                <div class="col-md-12 text-center wow fadeInUp">
+                    <h2><span class="id-color">Event</span> Sponsors</h2>
+                    <p class="lead">Check who make this event possible</p>
+                    <div class="spacer-single"></div>
+                </div>
+
+                <div class="col-md-12 text-center sequence wow fadeInUp">
+                    <h3>Gold Sponsors</h3>
+                    <div class="spacer-single"></div>
+                    <img src="images/logo/1.png" alt="" class="sq-item wow">
+                    <img src="images/logo/2.png" alt="" class="sq-item wow">
+                    <img src="images/logo/3.png" alt="" class="sq-item wow">
+
+                    <div class="spacer-double"></div>
+
+                    <h3>Silver Sponsors</h3>
+                    <div class="spacer-single"></div>
+                    <img src="images/logo/a1.png" alt="" class="sq-item wow">
+                    <img src="images/logo/a2.png" alt="" class="sq-item wow">
+                    <img src="images/logo/a3.png" alt="" class="sq-item wow">
+                    <img src="images/logo/a4.png" alt="" class="sq-item wow">
+                    <img src="images/logo/a5.png" alt="" class="sq-item wow">
+                </div>
+            </div>
+        </div>
+    </section>#}
+    <!-- section close -->
+
+    <!-- section begin -->
+    {#<section id="section-tickets" class="text-light no-top no-bottom" data-stellar-background-ratio=".2">
+        <div class="overlay-bg pt80 pb80">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center wow fadeInUp">
+                        <h2><span class="id-color">Get</span> Tickets</h2>
+                        <p class="lead">Join the biggest digital event of the year</p>
+                        <div class="spacer-single"></div>
+                    </div>
+
+                    <div class="col-md-12 wow fadeInUp">
+                        <div class="item pricing">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="pricing-s1 mb30">
+                                            <div class="top">
+                                                <h2>Early Bird</h2>
+                                                <p class="price"><span class="currency">$</span> <b>39</b> <span
+                                                        class="month">/1 person</span></p>
+                                            </div>
+                                            <div class="bottom">
+                                                <ul>
+                                                    <li><i class="icon_check"></i>1 Conference Day</li>
+                                                    <li><i class="icon_check"></i>1 Workshop Day</li>
+                                                    <li><i class="icon_check"></i>Regular Seat</li>
+                                                    <li><i class="icon_check"></i>Free Coffee/Lunch</li>
+                                                    <li><i class="icon_check"></i>One Certificate</li>
+                                                </ul>
+                                                <a href="" class="btn btn-custom">Get Ticket</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="pricing-s1 featured mb30">
+                                            <div class="ribbon">Best Selling</div>
+                                            <div class="top">
+                                                <h2>Regular</h2>
+                                                <p class="price"><span class="currency">$</span> <b>99</b> <span
+                                                        class="month">/1 person</span></p>
+                                            </div>
+                                            <div class="bottom">
+                                                <ul>
+                                                    <li><i class="icon_check"></i>2 Conference Day</li>
+                                                    <li><i class="icon_check"></i>2 Workshop Day</li>
+                                                    <li><i class="icon_check"></i>Regular Seat</li>
+                                                    <li><i class="icon_check"></i>Free Coffee/Lunch</li>
+                                                    <li><i class="icon_check"></i>Two Certificate</li>
+                                                </ul>
+                                                <a href="" class="btn btn-custom">Get Ticket</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="pricing-s1 mb30">
+                                            <div class="top">
+                                                <h2>Exclusive</h2>
+                                                <p class="price"><span class="currency">$</span> <b>199</b> <span
+                                                        class="month">/1 person</span></p>
+                                            </div>
+                                            <div class="bottom">
+                                                <ul>
+                                                    <li><i class="icon_check"></i>Full Conference Day</li>
+                                                    <li><i class="icon_check"></i>Full Workshop Day</li>
+                                                    <li><i class="icon_check"></i>VIP Seat</li>
+                                                    <li><i class="icon_check"></i>Free Coffee/Lunch</li>
+                                                    <li><i class="icon_check"></i>Three Certificate</li>
+                                                </ul>
+                                                <a href="" class="btn btn-custom">Get Ticket</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>#}
+    <!-- section close -->
+
+    <!-- section begin -->
+    {#<section id="section-info">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center wow fadeInUp">
+                    <h2><span class="id-color">Venue</span> Information</h2>
+                    <p class="lead">Everything you need, 24 hours</p>
+                    <div class="spacer-single"></div>
+                </div>
+
+                <div class="col-md-4 text-center wow fadeInUp">
+                    <i class="icon-flag id-color mb20 size40"></i>
+                    <h3>Venue</h3>
+                    <p>Large audiotorium with capacity of fifty thousand participants is also equipped with advanced
+                        facilities
+                        for your pleasure.</p>
+                </div>
+
+                <div class="col-md-4 text-center wow fadeInUp">
+                    <i class="icon-bike id-color mb20 size40"></i>
+                    <h3>Transport</h3>
+                    <p>The location of the seminar is located in the city center so it is easily reached by private or
+                        public
+                        vehicles which available for 24 hours.</p>
+                </div>
+
+                <div class="col-md-4 text-center wow fadeInUp">
+                    <i class="icon-map id-color mb20 size40"></i>
+                    <h3>Hotel</h3>
+                    <p>There are many hotels available around the event location for temporary residence as long as you
+                        follow
+                        this event, from motels to 5 stars.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>#}
+    <!-- section close -->
+
+    <!-- section begin -->
+    <!--<section id="section-map" class="no-top no-bottom" aria-label="map-container">-->
+    <!--    <div style="width: 100%; webkit-filter: grayscale(100%);-->
+    <!--    filter: grayscale(50%);"><iframe width="100%" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Sattva%20Magnus,%20Tolichowki+(Doctress)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.gps.ie/">gps vehicle tracker</a></iframe></div>-->
+    <!--</section>-->
+    <!-- section close -->
+
+    <!-- section begin -->
+    <!--<section id="section-quick-contact" class="bordertop">-->
+    <!--    <div class="container">-->
+    <!--        <div class="row text-center wow fadeInUp">-->
+    <!--            <div class="col-md-4">-->
+    <!--                <a href="tel:9885848867" style="text-decoration: none">-->
+    <!--                <div class="wm-1"></div>-->
+    <!--                <i class="icon_mobile id-color size40 mb20"></i>-->
+    <!--                <h5>Call Us</h5>-->
+                    <!--<h4>98858 48867</h4>-->
+    <!--                <h4>93929 44002</h4>-->
+    <!--                <h4>83411 34002</h4></a>-->
+    <!--            </div>-->
+
+    <!--            <div class="col-md-4">-->
+    <!--                <div class="wm-1"></div>-->
+    <!--                <i class="icon_house_alt id-color size40 mb20"></i>-->
+    <!--                <h5>Address</h5>-->
+    <!--                <h4>Sattva Magnus, Tolichowki</h4>-->
+    <!--            </div>-->
+
+    <!--            <div class="col-md-4">-->
+    <!--                <a href="mailto:thedoctressofficial@gmail.com" style="text-decoration: none">-->
+    <!--                <div class="wm-1"></div>-->
+    <!--                <i class="icon_mail_alt id-color size40 mb20"></i>-->
+    <!--                <h5>Email Us</h5>-->
+    <!--                <h4>thedoctressofficial@gmail.com</h4></a>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--    </div>-->
+    <!--</section>-->
+    <style>
+    /* Custom CSS to center columns within a row */
+    @media (min-width: 768px) {
+        /* Apply styles only for medium screens and larger */
+        .centered-cols {
+            display: flex;
+            justify-content: center;
+        }
+    }
+</style>
+
+<section id="   " class="bordertop">
+    <div class="container">
+        <div class="row text-center wow fadeInUp centered-cols">
+            <div class="col-md-4">
+                <div class="wm-1"></div>
+                <i class="icon_mobile id-color size40 mb20"></i>
+                <h5>Call Us</h5>
+                <h4>93929 44002</h4>
+                <h4>83411 34002</h4>
+            </div>
+            <div class="col-md-4">
+                <div class="wm-1"></div>
+                <i class="icon_mail_alt id-color size40 mb20"></i>
+                <h5>Email Us</h5>
+                <h4>thedoctressofficial@gmail.com</h4>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- section close -->
+
+    </div>
+    <!-- content close -->
+
+    <!-- footer begin -->
+    {% include "components/footer.html" %}
+    <!-- footer close -->
+
+    <a href="#" id="back-to-top"></a>
+    <div id="preloader">
+        <div class="preloader1"></div>
+    </div>
+    </div>
+
+
+    {% endblock content %}
+    
+    {% block javascripts %} 
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/jquery.isotope.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/easing.js') }}"></script>
+<script src="{{ url_for('static', filename='js/owl.carousel.js') }}"></script>
+<script src="{{ url_for('static', filename='js/jquery.countTo.js') }}"></script>
+<script src="{{ url_for('static', filename='js/wow.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/jquery.magnific-popup.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/enquire.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/jquery.stellar.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/jquery.plugin.js') }}"></script>
+<script src="{{ url_for('static', filename='js/jquery.countdown.js') }}"></script>
+<script src="{{ url_for('static', filename='js/countdown-custom.js') }}"></script>
+<script src="{{ url_for('static', filename='js/map.js') }}"></script>
+<script src="{{ url_for('static', filename='js/designesia.js') }}"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAc5d1RS_0yWJ1Hyw2hGWfbRZ9KKaxFAZo"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        const initialSlideIndex = 10;
+        const swiper = new Swiper('.swiper-container', {
+            loop: true,
+            autoplay: {
+                delay: 2000,
+                disableOnInteraction: false,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            slidesPerView: 1, // Show only one slide initially
+            spaceBetween: 0, // No space between slides
+            initialSlide: initialSlideIndex,
+            breakpoints: {
+                // When window width is >= 768px
+                768: {
+                    slidesPerView: 3, // Show 3 slides on larger screens
+                    spaceBetween: 280, // Add space between slides
+                },
+                // When window width is >= 992px
+                992: {
+                    slidesPerView: 4, // Show 5 slides on even larger screens
+                    spaceBetween: 280, // Add more space between slides
+                },
+            },
+            on: {
+                init: function () {
+                    this.slideToLoop(initialSlideIndex, 0, false); // Center the initial slide
+                },
+            },
+        });
+
+
+    </script>
+<script>
+    window.addEventListener('scroll', function() {
+        var section = document.getElementById('section-intro-8');
+        var scrollPosition = window.scrollY;
+        var backgroundPositionY = -(scrollPosition / 5) + "px"; // Adjust based on scroll position
+        section.style.backgroundPositionY = backgroundPositionY;
+    });
+    window.addEventListener('scroll', function() {
+        var section = document.getElementById('section-fun-facts');
+        var scrollPosition = window.scrollY;
+        var backgroundPositionY = -(scrollPosition / 5) + "px"; // Adjust based on scroll position
+        section.style.backgroundPositionY = backgroundPositionY;
+    });
+</script>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+
+
+    {% endblock javascripts %}
+
+</body>
