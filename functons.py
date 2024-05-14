@@ -1,6 +1,7 @@
 import time
 
 from bson import ObjectId
+from config import ACCESS_KEY, SECRET_KEY
 from db import collection, service_provider_collection
 
 import ssl
@@ -41,8 +42,7 @@ def current_user_service():
     
 import boto3
 from botocore.exceptions import NoCredentialsError
-ACCESS_KEY='AKIA4C6C3STL37NFUWNO'
-SECRET_KEY='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'
+
 def upload_profile_cover_to_aws(local_file, bucket, s3_file):
     s3 = boto3.client('s3', aws_access_key_id=ACCESS_KEY,aws_secret_access_key=SECRET_KEY)
     try:
